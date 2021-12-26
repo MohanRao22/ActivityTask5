@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+         /** Do the below programs in anonymous function & IIFE
+        *   1. Print odd numbers in an array
+        */
+        var numbers = [10,2,3,4,45,32,45,66,99];
+         var oddNumbersarrow = numbers.filter((val)=> val%2 !==0);
+         console.log(oddNumbersarrow);
+              /**
+             * OUTPUT:
+             [3, 45, 45, 99]
+        */
+
+
+
+         /** 
+        *   2. Convert all the strings to title caps in a string array
+        *   */
+       var str = "hello this is javascript documentation";
+     //  var titleCapsArray =[];
+       var strTitleCaps = str.split(" ");
+       var titleCapsArray = strTitleCaps.map((val)=>{
+                var lower = val.toLowerCase();
+                return val[0].toUpperCase()+ val.substring(1);
+       });
+       titleCapsArray = titleCapsArray.join(" ");
+   console.log(titleCapsArray);
+
+      /**
+    * OUTPUT:
+    Hello This Is Javascript Documentation
+    */
+
+
+        /** 
+        *   3. Sum of all numbers in an array
+        *   */
+        var numbers1 = [2,4,6,8,10];
+        var sumOfArrayarrow = numbers1.reduce((accumlator,currentValue) => {
+             return accumlator+currentValue;
+        },0);
+        console.log(sumOfArrayarrow);
+
+                 /**
+    * OUTPUT:
+   30
+    */
+
+           /** 
+        *   4. Return all the prime numbers in an array
+        *   */
+
+        var numbers2 = [2, 3, 5, 7, 11, 13, 17, 19, 23,12,15,16,18,89,97];
+      
+      var primeNumbers = numbers2.map((val)=>{
+          var count = 0;
+             for(let i=2;i<=val;i++){
+             
+                 if(val == 2){
+                  console.log(`Prime Numbers are: ${val}`);
+                 }
+                else if(val%i == 0){
+                 //   console.log(val);
+                   count++;
+                }
+           
+             }
+             if(count == 1){
+                       console.log(`Prime Numbers are: ${val}`);
+                   }
+      });
+
+           /**
+       *   OUTPUT:
+          2,3,5,7,11,13,17,19,23,89,97 
+       * */
+
+
+              /** 
+        *   5. Return all the palindromes in an array
+        *   */
+        var palindromeCheckingList =["mom","rainbow","rain","refer","level"];
+       palindromeCheckingList.map((val)=>{
+        var store = [];
+                var res =  val.split("");
+                let len = res.length;
+              for(let i=len-1;i>=0;i--){
+                       
+                       store.push(res[i]);
+                   }
+                   res = res.join("");
+                  store = store.join("");
+                   if(store == res){
+                       console.log(`Palindrome word is : ${res}`);
+                   }
+  });
+
+
+    /**
+       *   OUTPUT:
+         mom
+         refer
+         level
+       * */
+
+
+
+
+
+    </script>
+</body>
+</html>

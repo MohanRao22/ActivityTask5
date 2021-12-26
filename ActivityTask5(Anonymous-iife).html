@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Task 4</title>
+</head>
+<body>
+    
+    <script>
+        /** Do the below programs in anonymous function & IIFE
+        *   1. Print odd numbers in an array
+        */
+
+        var numbers = [10,2,3,4,45,32,45,66,99];
+    
+        var oddNumbersanonymous = numbers.filter(function(val){
+             return val%2 !== 0;
+        });
+        console.log(oddNumbersanonymous);
+
+            /**
+             * OUTPUT:
+             [3, 45, 45, 99]
+        */
+
+
+
+          /** 
+        *   2. Convert all the strings to title caps in a string array
+        *   */
+       var str = "hello this is javascript documentation";
+     //  var titleCapsArray =[];
+       var strTitleCaps = str.split(" ");
+
+
+   // anonymous function
+   var titleCapsArrayAnonymous = strTitleCaps.map(function(value){
+         var lwer = value.toLowerCase();
+         return value[0].toUpperCase() + value.substring(1);
+   });
+   titleCapsArrayAnonymous = titleCapsArrayAnonymous.join(" ");
+   console.log(titleCapsArrayAnonymous);
+
+   /**
+    * OUTPUT:
+    Hello This Is Javascript Documentation
+    */
+
+           /** 
+        *   3. Sum of all numbers in an array
+        *   */
+        var numbers1 = [2,4,6,8,10];
+        var sumOfArrayanonymous = numbers1.reduce(function(acc,cur){
+              return acc+cur;
+        });
+       console.log(sumOfArrayanonymous);
+
+          /**
+    * OUTPUT:
+   30
+    */
+
+
+            /** 
+        *   4. Return all the prime numbers in an array
+        *   */
+
+        var numbers2 = [2, 3, 5, 7, 11, 13, 17, 19, 23,12,15,16,18,89,97];
+      // anonymous function
+      var primeNumbersAnonymous = numbers2.map(function(value){
+        var count = 0;
+             for(let i=2;i<=value;i++){
+             
+                 if(value == 2){
+                  console.log(`Prime Numbers are: ${value}`);
+                 }
+                else if(value%i == 0){
+                 //   console.log(val);
+                   count++;
+                }
+           
+             }
+             if(count == 1){
+                       console.log(`Prime Numbers are: ${value}`);
+                   }
+      });
+
+      /**
+       *   OUTPUT:
+          2,3,5,7,11,13,17,19,23,89,97 
+       * */
+
+
+         /** 
+        *   5. Return all the palindromes in an array
+        *   */
+       var palindromeCheckingList =["mom","rainbow","rain","refer","level"];
+       palindromeCheckingList.map(function(val){
+        var store = [];
+                var res =  val.split("");
+                let len = res.length;
+              for(let i=len-1;i>=0;i--){
+                       
+                       store.push(res[i]);
+                   }
+                   res = res.join("");
+                  store = store.join("");
+                   if(store == res){
+                       console.log(`Palindrome word is : ${res}`);
+                   }
+  });
+
+       /**
+       *   OUTPUT:
+         mom
+         refer
+         level
+       * */
+
+    /** 
+        *  6. Return median of two sorted arrays of same size
+        *   */
+
+        var medianArr1 = [1, 12, 15, 26, 38];
+        var medianArr2 = [2, 13, 17, 30, 45];
+        var mergedArr = [...medianArr1,...medianArr2];
+        console.log(mergedArr);
+        var medianSorted = mergedArr.sort((a,b)=> {
+                   return a-b;
+        });
+        console.log(medianSorted);
+        var len = medianSorted.length;
+        console.log(`Length is ${len}`);
+        var num1 = medianSorted[(len/2)-1];
+        console.log(num1);
+        var num2 = medianSorted[(len/2)];
+        console.log(num2);
+        var medianResult = (num1 + num2)/2;
+        console.log(medianResult);
+
+            /**
+       *   OUTPUT:
+             16
+       * */
+
+            /** 
+        *  7. Remove duplicates from an array
+        *   */
+       var duplicateCheck = [10,22,2,55,10,2,7];
+       var duplicateResult = [];
+       for(let i=0;i<duplicateCheck.length;i++){
+           var flag = 0;
+           for(let j=0;j<duplicateCheck.length;j++){
+               if(duplicateCheck[i] == duplicateCheck[j]){
+                   flag++;
+                   if(!(duplicateResult.includes(duplicateCheck[i]))){
+                          if(flag <= 1){
+                          duplicateResult.push(duplicateCheck[i]);
+                          }
+                   }}} }
+       console.log(duplicateResult);
+
+       /**
+        * OUTPUT:
+            [10, 22, 2, 55, 7]
+           */
+
+
+          /** 
+        *   8. Rotate an array by k times
+        *   */
+
+        var rotationCheck = [2,4,6,8,10,12,14,16,17];
+        var lenn = rotationCheck.length;
+      
+        var rotateFromPos = 4;
+        var rotatedkTimes = [];
+         rotationCheck.map(function(val){
+             if(rotateFromPos < rotationCheck.length){
+            rotatedkTimes.push(rotationCheck[rotateFromPos]);
+            rotateFromPos++;
+             }
+             else{
+                rotateFromPos = 0; 
+                 rotatedkTimes.push(rotationCheck[rotateFromPos]);
+            rotateFromPos++;
+}
+});
+console.log(rotatedkTimes);
+
+/**
+ *   OUTPUT:
+      [10, 12, 14, 16, 17, 2, 4, 6, 8]
+ * */
+    </script>
+</body>
+</html>
